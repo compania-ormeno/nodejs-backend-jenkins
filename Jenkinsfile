@@ -209,13 +209,13 @@ pipeline {
                 echo ">>> Ajustando las credenciales para QA..."
                   az aks get-credentials \
                     --resource-group $RESOURCE_GROUP \
-                    --name $AKS_NAME_QA \
+                    --name $AKS_NAME \
                     --overwrite-existing
 
                 echo ">>> Deploy Neto en QA..."
                   az aks command invoke \
                     --resource-group $RESOURCE_GROUP \
-                    --name $AKS_NAME_QA \
+                    --name $AKS_NAME \
                     --command "kubectl apply -f k8s-qa.yml" \
                     --file k8s-qa.yml
                 '''
@@ -277,13 +277,13 @@ pipeline {
                 echo ">>> Ajustando las credenciales para PRD..."
                   az aks get-credentials \
                     --resource-group $RESOURCE_GROUP \
-                    --name $AKS_NAME_PRD \
+                    --name $AKS_NAME \
                     --overwrite-existing
 
                 echo ">>> Deploy Neto en PRD..."
                   az aks command invoke \
                     --resource-group $RESOURCE_GROUP \
-                    --name $AKS_NAME_PRD \
+                    --name $AKS_NAME \
                     --command "kubectl apply -f k8s-prd.yml" \
                     --file k8s-prd.yml
                 '''
