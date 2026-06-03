@@ -273,14 +273,14 @@ pipeline {
 
         stage('[CD-PRD] Deploy a AKS') {
             steps {
-                sh '''}
-                echo ">>> Ajustando las credenciales para PRD..."
+                sh '''
+                  echo ">>> Ajustando las credenciales para PRD..."
                   az aks get-credentials \
                     --resource-group $RESOURCE_GROUP \
                     --name $AKS_NAME \
                     --overwrite-existing
 
-                echo ">>> Deploy Neto en PRD..."
+                  echo ">>> Deploy Neto en PRD..."
                   az aks command invoke \
                     --resource-group $RESOURCE_GROUP \
                     --name $AKS_NAME \
